@@ -1,0 +1,97 @@
+//Provide New User Data if You Want to Add New User.
+//Change the Values For username and password keys in the below object.
+//The Used Roles Are "manager","employee" And "client"
+//"client" Can See All The Created Tasks Only.
+//"manager" can see,update,delete all the tasks and get a specific task.
+//"employee" can see the assigned task and he/she can update that assigned taks only.
+POST http://localhost:3000/add-new-user/
+Content-Type:application/json
+
+{
+    "username":"VarunJaitli",
+    "role":"client",
+    "password":"VarunJaitli"
+}
+
+
+###
+//For Login The Registered User
+//After Login You Will Able To See The "JWT Token" In Response And Console.
+//So Copy The JWT Token And Repalce it With The "token" Text In The Authorization.
+POST http://localhost:3000/login/
+Content-Type: application/json
+
+{
+    "username":"VikramKumar",
+    "password":"VikramKumar"
+}
+
+
+###
+//For Adding New Task To The DataBase
+
+//Replace The "token" text With The Copied JWT Token From The Console/Response You Get After Login
+//Ex: Authorization: Bearer PlaceCopiedJWTtokenHere
+//Only The 'manager'can create task
+//Used Status Values Are "TO DO" and "IN PROGRESS"
+POST http://localhost:3000/tasks/
+Authorization: Bearer token
+Content-Type: application/json
+
+{
+    "title":"Marketing",
+    "description":"Create a marketing budget and manage company branding",
+    "status":"IN PROGRESS",
+    "assigned_employee_id":1,
+    "created_at":"2024-04-27 10:00:00"
+}
+
+
+###
+//Client can see all the created tasks data
+//Employee gets only the assigned tasks data
+//Manager Gets all the created tasks data
+
+//Replace The "token" text With The Copied JWT Token From The Console/Response You Get After Login
+//Ex: Authorization: Bearer PlaceCopiedJWTtokenHere
+GET http://localhost:3000/tasks/
+Authorization: Bearer token
+
+
+###
+//Client And Manager Can See Any Particular Created Task.
+//Employee Able to See Only The Assigned Task
+
+//Replace The "token" text With The Copied JWT Token From The Console/Response You Get After Login
+//Ex: Authorization: Bearer PlaceCopiedJWTtokenHere
+GET http://localhost:3000/tasks/6/
+Authorization: Bearer token
+
+
+###
+//Manager Can Update Any Task.
+//Employee Can Update Only The Assigned Task.
+//Client Can't Update Any Task By His Own.
+
+//Replace The "token" text With The Copied JWT Token From The Console/Response You Get After Login
+//Ex: Authorization: Bearer PlaceCopiedJWTtokenHere
+PUT http://localhost:3000/tasks/6/
+Authorization: Bearer token
+Content-Type: application/json
+
+{
+  "title": "Financial Management",
+  "description": "Managing finances, tracking cash flow, and analyzing financial reports to ensure the business’s financial health",
+  "status": "IN_PROGRESS"
+}
+
+
+###
+//Only The Manager Can Delete Any Task.
+
+//Replace The "token" text With The Copied JWT Token From The Console/Response You Get After Login
+//Ex: Authorization: Bearer PlaceCopiedJWTtokenHere
+DELETE http://localhost:3000/tasks/12
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlZpa3JhbUt1bWFyIiwiaWF0IjoxNzE0NTUwMzQ2fQ.VvRV-GHcrcEvq-IDtwShoqKzHrZ9rUkOtR0KBFPxUIA
+
+###
