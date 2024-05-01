@@ -48,6 +48,7 @@ Content-Type: application/json
 
 
 ###
+//To GET all the created tasks/assigned tasks
 //Client can see all the created tasks data
 //Employee gets only the assigned tasks data
 //Manager Gets all the created tasks data
@@ -59,6 +60,7 @@ Authorization: Bearer token
 
 
 ###
+//To GET Particular Task Data Based On TaskId
 //Client And Manager Can See Any Particular Created Task.
 //Employee Able to See Only The Assigned Task
 
@@ -69,6 +71,7 @@ Authorization: Bearer token
 
 
 ###
+//To Update A Task Based On TaskId
 //Manager Can Update Any Task.
 //Employee Can Update Only The Assigned Task.
 //Client Can't Update Any Task By His Own.
@@ -87,6 +90,7 @@ Content-Type: application/json
 
 
 ###
+//To DELETE a task based on taskId
 //Only The Manager Can Delete Any Task.
 
 //Replace The "token" text With The Copied JWT Token From The Console/Response You Get After Login
