@@ -1,4 +1,4 @@
-***USE THE app.http FILE TO RUN THE URLS***
+***USE THE "app.http" FILE TO RUN THE URLS***
 
 -> After getting the files to the local repository run 'npm install' to install all the dependencies.
 
@@ -53,6 +53,6 @@ client_login_details = {
 
 ->updated_at - If any changes in the data then "updated_at" date and time will change
 
-***USE THE app.http FILE TO RUN THE URLS***
+***USE THE "app.http" FILE TO RUN THE URLS***
 
 
